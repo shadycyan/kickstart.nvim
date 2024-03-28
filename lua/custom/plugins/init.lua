@@ -4,12 +4,12 @@
 -- See the kickstart.nvim README for more information
 return {
   {
-    'michealrommel/nvim-silicon',
-    lazy = false,
+    'michaelrommel/nvim-silicon',
+    lazy = true,
     cmd = 'Silicon',
     config = function()
       require('silicon').setup {
-        font = 'Geist Mono',
+        font = 'Geist Mono=34;Apple Color Emoji=34',
         theme = 'Dracula',
         background = '#000000',
       }
