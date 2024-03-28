@@ -161,6 +161,9 @@ vim.opt.expandtab = false -- do not expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
 vim.opt.smartindent = true
 
+-- Use relative line numbers
+vim.opt.relativenumber = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
