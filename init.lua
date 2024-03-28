@@ -411,6 +411,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      vim.keymap.set('n', '<leader>x', '<Cmd>!chmod +x %<CR>', { desc = 'Make current file e[X]ecutable' })
+      vim.keymap.set('n', '<C-f>', ':silent !tmux neww tmux-sessionizer\n', { desc = 'Create new tmux session' })
     end,
   },
 
