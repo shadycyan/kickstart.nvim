@@ -93,6 +93,8 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = false
 
+vim.g.netrw_list_hide = '.DS_Store,.idea,__pycache__,venv,node_modules,*\\.o,*\\.pyc,.*\\.swp'
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -770,18 +772,18 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 
-    --'folke/tokyonight.nvim',
+    'folke/tokyonight.nvim',
     -- 'olivercederborg/poimandres.nvim',
-    'binhtran432k/dracula.nvim',
+    -- 'binhtran432k/dracula.nvim',
 
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'poimandres'
-      vim.cmd.colorscheme 'dracula'
+      -- vim.cmd.colorscheme 'dracula'
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
     end,
