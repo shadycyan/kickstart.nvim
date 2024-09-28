@@ -656,6 +656,8 @@ require('lazy').setup({
       --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      local util = require 'lspconfig/util'
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -667,7 +669,14 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {
+          -- on_attach = lspconfig.on_attach,
+          -- capabilities = lspconfig.capabilities,
+          cmd = { 'gopls' },
+          templateExtensions = { 'gotmpl', 'tmpl' },
+          filetypes = { 'go', 'tmpl', 'gomod', 'gowork', 'gotmpl' },
+          root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
