@@ -306,8 +306,10 @@ do
       end
 
       if name == 'LuaSnip' then
-        if vim.fn.has 'win32' ~= 1 and vim.fn.executable 'make' == 1 then run_build(name, { 'make', 'install_jsregexp' },
-            ev.data.path) end
+        if vim.fn.has 'win32' ~= 1 and vim.fn.executable 'make' == 1 then
+          run_build(name, { 'make', 'install_jsregexp' },
+            ev.data.path)
+        end
         return
       end
 
@@ -1046,6 +1048,7 @@ do
   require 'kickstart.plugins.autopairs'
   -- require 'kickstart.plugins.neo-tree'
   require 'kickstart.plugins.gitsigns'
+  require 'kickstart.plugins.debug'
 
   -- NOTE: You can add your own plugins, configuration, etc. in `lua/custom/plugins/*.lua`.
   --
