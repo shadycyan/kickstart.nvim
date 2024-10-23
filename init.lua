@@ -889,7 +889,9 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'maxmx03/dracula.nvim',
+    -- 'maxmx03/dracula.nvim',
+    'rose-pine/neovim',
+    name = 'rose-pine',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
@@ -906,7 +908,10 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-night'
     end,
     opts = {
-      transparent = true,
+      styles = {
+        transparency = true,
+      },
+      -- transparent = true,
     },
   },
 
