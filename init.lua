@@ -846,8 +846,9 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'maxmx03/dracula.nvim',
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    -- 'rose-pine/neovim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
@@ -856,16 +857,18 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 
       function ColorMyPencils(color)
-        color = color or 'rose-pine'
+        color = color or 'catppuccin'
         vim.cmd.colorscheme(color)
       end
 
-      ColorMyPencils 'rose-pine'
+      ColorMyPencils()
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
     opts = {
+      flavour = 'mocha', -- latte, frappe, macchiato, mocha
+      transparent_background = true,
       styles = {
         transparency = true,
       },
