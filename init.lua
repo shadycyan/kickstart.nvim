@@ -776,6 +776,7 @@ require('lazy').setup({
         bash = { 'shfmt', 'shellcheck' },
         zsh = { 'shfmt', 'shellcheck' },
         sh = { 'shfmt', 'shellcheck' },
+        toml = { 'taplo' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
