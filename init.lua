@@ -669,13 +669,23 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
+        bashls = {},
         gopls = {
           -- on_attach = lspconfig.on_attach,
           -- capabilities = lspconfig.capabilities,
           cmd = { 'gopls' },
-          templateExtensions = { 'gotmpl', 'tmpl' },
-          filetypes = { 'go', 'tmpl', 'gomod', 'gowork', 'gotmpl' },
+          templateExtensions = { 'gotmpl', 'tmpl', 'templ', 'gohtml' },
+          filetypes = { 'go', 'tmpl', 'templ', 'gomod', 'gowork', 'gotmpl', 'gohtml' },
           root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unsusedParameters = true,
+              },
+            },
+          },
         },
         -- pyright = {},
         -- rust_analyzer = {},
@@ -772,7 +782,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { 'goimports', 'gofmt' },
+        go = { 'goimports', 'gofumpt' },
         bash = { 'shfmt', 'shellcheck' },
         zsh = { 'shfmt', 'shellcheck' },
         sh = { 'shfmt', 'shellcheck' },
@@ -808,12 +818,12 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
         opts = {},
       },
@@ -844,7 +854,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'enter',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
